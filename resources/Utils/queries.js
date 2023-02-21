@@ -279,7 +279,7 @@ export class Tasks {
 
         tblTasks.findAll()
             .then(async (result) => {
-                const stringRes = await JSON.stringify(result);
+                const stringRes = await result.json();
                 const parsedRes = await JSON.parse(stringRes);
 
                 res.send(parsedRes)
