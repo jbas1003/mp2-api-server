@@ -278,15 +278,18 @@ export class Tasks {
         let retVal = {success: false};
 
         tblTasks.findAll()
-            .then(async (result) => {
-                const stringRes = await result.json();
-                const parsedRes = await JSON.parse(stringRes);
+        .then((result)=>{
+            const stringRes = JSON.stringify(result)
+            const parsedRes = JSON.parse(stringRes)
 
-                res.send(parsedRes)
-            })
-            .catch((error) => {
-                res.send('Show Tasks Error: ', error);
-            })
+            res.send(parsedRes)
+        })
+        .finally((result)=>{
+            res.send(result)
+        })
+        .catch((error)=>{
+            // console.log('No data to show')
+        })
     }
 
     updateTask(req, res) {
