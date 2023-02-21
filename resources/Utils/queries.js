@@ -278,14 +278,14 @@ export class Tasks {
         let retVal = {success: false};
 
         tblTasks.findAll()
-            .then((result) => {
-                const stringRes = JSON.stringify(result);
-                const parsedRes = JSON.parse(stringRes);
+            .then(async (result) => {
+                const stringRes = await JSON.stringify(result);
+                const parsedRes = await JSON.parse(stringRes);
 
-                result.send(parsedRes)
+                res.send(parsedRes)
             })
             .catch((error) => {
-                result.send('Show Tasks Error: ', error);
+                res.send('Show Tasks Error: ', error);
             })
     }
 
