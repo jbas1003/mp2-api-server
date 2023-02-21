@@ -292,19 +292,21 @@ export class Tasks {
     updateTask(req, res) {
         let retVal = {success: false};
         
-        // console.log(`${req.body.taskId}, ${req.body.taskName}, ${req.body.taskDescription}, ${req.body.fk_listId}`)
+        console.log(`${req.body.taskId}, ${req.body.taskName}, ${req.body.taskDescription}, ${req.body.requestor}, ${req.body.workNumber}, ${req.body.mobile}, ${req.body.email}`)
 
         tblTasks.update({
             taskName: req.body.taskName,
             taskDescription: req.body.taskDescription,
-            fk_listId: req.body.fk_listId
+            requestor: req.body.requestor,
+            workNumber: req.body.workNumber,
+            mobile: req.body.mobile,
+            email: req.body.email,
         }, {
             where: {
                 taskId: req.body.taskId
             }
         })
         .then(result => {
-            // console.log(result.length)
             if (result.length > 0) {
                 retVal.success = true;
                 retVal.message = 'Successfully updated task!';
