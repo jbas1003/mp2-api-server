@@ -282,10 +282,10 @@ export class Tasks {
                 const stringRes = JSON.stringify(result);
                 const parsedRes = JSON.parse(stringRes);
 
-                res.send(parsedRes)
+                result.send(parsedRes)
             })
             .catch((error) => {
-                res.send('Show Tasks Error: ', error);
+                result.send('Show Tasks Error: ', error);
             })
     }
 
