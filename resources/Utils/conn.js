@@ -1,7 +1,12 @@
 import { Sequelize } from "sequelize";
 
 export const newSequelize = Sequelize
-export const taskSupportDb = new Sequelize('Basco', 'wd32p', '7YWFvP8kFyHhG3eF', {
-    host: '20.211.37.87',
+// export const taskSupportDb = new Sequelize('Basco', 'wd32p', '7YWFvP8kFyHhG3eF', {
+//     host: '20.211.37.87',
+//     dialect: 'mysql'
+// });
+
+export const taskSupportDb = new Sequelize('tasksupportdb', 'root', '12345', {
+    host: 'localhost',
     dialect: 'mysql'
-});
+})
